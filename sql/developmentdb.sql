@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql
--- Generation Time: Nov 30, 2021 at 02:48 PM
--- Server version: 10.6.4-MariaDB-1:10.6.4+maria~focal
--- PHP Version: 7.4.25
+-- Gegenereerd op: 08 dec 2022 om 16:44
+-- Serverversie: 10.6.5-MariaDB-1:10.6.5+maria~focal
+-- PHP-versie: 7.4.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,46 +24,81 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `article`
+-- Tabelstructuur voor tabel `games`
 --
 
-CREATE TABLE `article` (
-  `id` int(11) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `content` varchar(10000) NOT NULL,
-  `author` varchar(255) NOT NULL,
-  `posted_at` datetime NOT NULL
+CREATE TABLE `games` (
+  `id` int(255) NOT NULL,
+  `opponent` varchar(50) NOT NULL,
+  `date` date NOT NULL,
+  `nrOfTickets` int(255) NOT NULL,
+  `price` double DEFAULT NULL,
+  `time` time DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `article`
+-- Gegevens worden geëxporteerd voor tabel `games`
 --
 
-INSERT INTO `article` (`id`, `title`, `content`, `author`, `posted_at`) VALUES
-(1, 'Test title', 'test content', 'test author', '2022-11-30 13:09:55');
+INSERT INTO `games` (`id`, `opponent`, `date`, `nrOfTickets`, `price`, `time`) VALUES
+(23, 'HSV', '2022-12-17', 1200, 12, '14:30:00'),
+(24, 'Castricum', '2022-12-24', 1800, 12.5, '13:15:00'),
+(25, 'Kolping Boys', '2022-12-30', 1200, 10, '15:15:00'),
+(26, 'Fortuna', '2023-01-06', 1200, 12.5, '14:30:00'),
+(27, 'Fortuna', '2023-01-06', 1200, 12.5, '14:30:00');
 
-INSERT INTO `article` (`id`, `title`, `content`, `author`, `posted_at`) VALUES
-(2, 'Another test title', 'Some more test content', 'test author', '2022-11-29 13:09:55');
+-- --------------------------------------------------------
 
 --
--- Indexes for dumped tables
+-- Tabelstructuur voor tabel `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(100) NOT NULL,
+  `userName` varchar(30) NOT NULL,
+  `passWord` varchar(30) NOT NULL,
+  `email` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `users`
+--
+
+INSERT INTO `users` (`id`, `userName`, `passWord`, `email`) VALUES
+(1, 'admin', 'test123', 'test@inholland.nl'),
+(2, 'admin', 'test123', 'test@inholland.nl');
+
+--
+-- Indexen voor geëxporteerde tabellen
 --
 
 --
--- Indexes for table `article`
+-- Indexen voor tabel `games`
 --
-ALTER TABLE `article`
+ALTER TABLE `games`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Indexen voor tabel `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT voor geëxporteerde tabellen
 --
 
 --
--- AUTO_INCREMENT for table `article`
+-- AUTO_INCREMENT voor een tabel `games`
 --
-ALTER TABLE `article`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `games`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
+-- AUTO_INCREMENT voor een tabel `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
