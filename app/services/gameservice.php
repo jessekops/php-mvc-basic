@@ -6,4 +6,9 @@ class GameService {
         $repository = new GameRepository();
         return $repository->getAll();
     }
+
+    public function getOne($id) {
+        $repository = new GameRepository();
+        return $repository->getOne($id);
+    }
 }

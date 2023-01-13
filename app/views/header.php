@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,14 +22,15 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
-          <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
-          </li>
+          
           <li class="nav-item">
             <a class="nav-link" href="/game">Games</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/cart">Shopping Cart</a>
           </li>
         </ul>
       </div>

@@ -66,10 +66,8 @@ class AdminController
                 $this->adminservice->updateOne($id, $opponent, $date, $nrOfTickets, $price, $time);
 
                 header('Location: /admin');
-                var_dump($id);
             }
             else {
-                var_dump($id);
             }
         }
     }

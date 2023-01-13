@@ -17,10 +17,8 @@ class LoginController
 
     public function validate()
     {
-
-        // check for POST var
         if (isset($_POST['submit'])) {
-            $_POST = filter_input_array(INPUT_POST, FILTER_UNSAFE_RAW); 
+            $_POST = filter_input_array(INPUT_POST, FILTER_UNSAFE_RAW);
 
             $userName = $_POST['userName'];
             $password = $_POST['passWord'];
@@ -30,7 +28,7 @@ class LoginController
             if ($count == 1) {
                 header('Location: /admin');
             } else {
-                var_dump($password);
+                
             }
         }
     }

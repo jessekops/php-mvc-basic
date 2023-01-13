@@ -16,6 +16,6 @@ require __DIR__ . '/../header.php';
   <div class="row mb-4">
     <div class="col d-flex justify-content-center">
 
-  <button name="submit" type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+      <button name="submit" type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
 
 </form>

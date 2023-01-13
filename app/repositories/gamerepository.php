@@ -19,4 +19,22 @@ class GameRepository extends Repository {
             echo $e;
         }
     }
+
+    function getOne($id) {
+        try {
+            $stmt = $this->connection->prepare("SELECT * FROM games WHERE id==:id");
+            $stmt->execute();
+
+            $stmt->bindParam(':id', $id);
+
+            $stmt->setFetchMode(PDO::FETCH_CLASS, 'Game');
+            $games = $stmt->fetchAll();
+
+            return $games;
+
+        } catch (PDOException $e)
+        {
+            echo $e;
+        }
+    }
 }
