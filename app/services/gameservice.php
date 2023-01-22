@@ -11,4 +11,14 @@ class GameService {
         $repository = new GameRepository();
         return $repository->getOne($id);
     }
+
+    public function getAllGamesInCart($gamesInCart){
+        $repository = new GameRepository();
+        return $repository->getAllGamesInCart($gamesInCart);
+    }
+
+    public function addGameToCart($id, $quantity) {
+        $repository = new GameRepository();
+        $repository->addGameToCart($id, $quantity);
+    }
 }

@@ -28,7 +28,7 @@ class LoginController
             if ($count == 1) {
                 header('Location: /admin');
             } else {
-                
+                echo "Wrong username/password combination";
             }
         }
     }

@@ -7,6 +7,7 @@ class GameController
 
     function __construct()
     {
+        
         $this->gameservice = new GameService();
     }
 

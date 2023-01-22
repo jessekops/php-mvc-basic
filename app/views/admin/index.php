@@ -12,16 +12,13 @@ include __DIR__ . '/../header.php';
                 <form action="/admin/insert" method="post">
                     <p class="card-text">
                         <label for="inputName">Opponent: </label>
-                        <input type="text" class="form-control mb-2" id="opponent" name="opponent" value="">
+                        <input type="text" class="form-control mb-2" id="opponent" name="opponent" value=""required>
                         <label for="inputName">Date: </label>
-                        <input type="date" class="form-control mb-2" id="date" name="date" value="">
+                        <input type="date" class="form-control mb-2" id="date" name="date" value=""required>
                         <label for="inputName">Kick-Off: </label>
-                        <input type="time" class="form-control mb-2" id="time" name="time" value="">
-
-                        <label for="inputName">Available tickets: </label>
-                        <input type="int" class="form-control mb-2" id="nrOfTickets" name="nrOfTickets" value="">
+                        <input type="time" class="form-control mb-2" id="time" name="time" value=""required>
                         <label for="inputName">Price: :</label>
-                        <input type="double" class="form-control mb-2" id="price" name="price" value="">
+                        <input type="double" class="form-control mb-2" id="price" name="price" value=""required>
                         <button type="submit" name="submit" class="btn btn-primary mt-3">Add Game</button>
                     </p>
             </div>
@@ -39,17 +36,14 @@ include __DIR__ . '/../header.php';
                         <input type="hidden" id="gameId" name="gameId" value=" <?= $game->getId() ?>">
                         <label for="inputName">Opponent: </label>
                         <input type="text" class="form-control mb-2" id="opponent" name="opponent"
-                            value=" <?= $game->getOpponent() ?>">
+                            value=" <?= $game->getOpponent() ?>" required>
                         <label for="inputName">Date: </label>
-                        <input type="date" class="form-control mb-2" id="date" name="date" value="<?= $game->getDate() ?>">
+                        <input type="date" class="form-control mb-2" id="date" name="date" value="<?= $game->getDate() ?>"required>
                         <label for="inputName">Kick-Off: </label>
-                        <input type="time" class="form-control mb-2" id="time" name="time" value="<?= $game->getTime() ?>">
-                        <label for="inputName">Available tickets: </label>
-                        <input type="int" class="form-control mb-2" id="nrOfTickets" name="nrOfTickets"
-                            value="<?= $game->getNrOfTickets() ?>">
+                        <input type="time" class="form-control mb-2" id="time" name="time" value="<?= $game->getTime() ?>"required>
                         <label for="inputName">Price: :</label>
                         <input type="double" class="form-control mb-2" id="price" name="price"
-                            value="<?= $game->getPrice() ?>">
+                            value="<?= $game->getPrice() ?>"required>
                         <button type="edit" name="edit" class="btn btn-success my-2">Edit Game</button>
                     </form>
                     <form action="/admin/deleteOne?id=<? echo $game->getId() ?>" method="post">

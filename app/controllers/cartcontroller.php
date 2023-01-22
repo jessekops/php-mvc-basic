@@ -10,32 +10,38 @@ class CartController
     }
     public function index()
     {
-        session_start();
-        if (!isset($_SESSION['cart']))
-            $_SESSION['cart']=array();
+        $gamesInCart = isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
+
+        if ($gamesInCart) {
+            $model = $this->gameservice->getAllGamesInCart($gamesInCart);
+        }
+        else { 
+            $model = array();
+        }
+
         require __DIR__ . '/../views/cart/index.php';
     }
 
     public function addGameToCart()
     {
-        if (isset($_GET['id'])) {
-            $_SESSION['cart'] = array();
-
-            $id = $_GET['id'];
-            array_push($_SESSION['cart'], $id);
-            // $_SESSION['games'][] = $id;
-            // Print_r ($_SESSION['cart']);
-            header('Location: /cart');
+        if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+            $id = (int)$_GET['id'];
+            $quantity = 1;
+            $this->gameservice->addGameToCart($id, $quantity);
+            header('location: /cart');
         }
+        else {
+            echo "failed";
+        }
+        
     }
 
-    private function getItemsFromCart()
+    public function deleteOneFromSession()
     {
-        $cart = array();
-        foreach ($_SESSION['cart'] as $key => $value) {
-            $game = $this->gameservice->getOne($key);
-            array_push($cart, array('opponent' => $game));
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+            unset($_SESSION['cart'][$id]);
+            header('Location: /cart');
         }
-        return $cart;
     }
 }

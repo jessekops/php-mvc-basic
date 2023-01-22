@@ -1,10 +1,9 @@
-
 <?php
 include __DIR__ . '/../header.php';
 ?>
 <section class="items-section">
     <div class="container">
-        <h2>Coming Matches</h2>
+        <h2>Buy tickets here</h2>
         <div class="row">
             <?php
             foreach ($model as $game) {
@@ -18,10 +17,9 @@ include __DIR__ . '/../header.php';
                         <p class="card-text"><small>
                                 Date: <?= $game->getDate() . "<br>"; ?>
                                 Kick-Off: <?= $game->getTime() . "<br>"; ?>
-                                Tickets available: <?= $game->getNrOfTickets() . "<br>"; ?>
                                 € <?= $game->getPrice() ?>
                             </small></p>
-                        <form action="/cart/addGameToCart?id=<? echo $game->getId() ?>" method="post">
+                        <form action="/cart/addGameToCart?id=<? echo $game->getId()?>" method="post">
                             <button type="add" name="add" class="btn btn-primary mt-auto">add to cart</button>
                         </form>
                     </div>

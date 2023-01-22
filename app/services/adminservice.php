@@ -7,14 +7,14 @@ class AdminService {
         return $repository->getAll();
     }
 
-    public function insert($opponent, $date, $nrOfTickets, $price, $time) {
+    public function insert($opponent, $date, $price, $time) {
         $repository = new AdminRepository();
-        $repository->insert($opponent, $date, $nrOfTickets, $price, $time);
+        $repository->insert($opponent, $date, $price, $time);
     }
 
-    public function updateOne($id, $opponent, $date, $nrOfTickets, $price, $time) {
+    public function updateOne($id, $opponent, $date, $price, $time) {
         $repository = new AdminRepository();
-        $repository->updateOne($id, $opponent, $date, $nrOfTickets, $price, $time);
+        $repository->updateOne($id, $opponent, $date, $price, $time);
     }
 
     public function deleteOne($id) {

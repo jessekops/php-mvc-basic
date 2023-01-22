@@ -4,12 +4,12 @@ require __DIR__ . '/../header.php';
 
 <form action="login/validate" method="post" class="form-signin">
   <div class="form-outline mb-4">
-    <input type="text" name="userName" class="form-control" />
+    <input type="text" name="userName" class="form-control" required/>
     <label class="form-label" for="form2Example1">Username</label>
   </div>
 
   <div class="form-outline mb-4">
-    <input type="password" name="passWord" class="form-control" />
+    <input type="password" name="passWord" class="form-control" required/>
     <label class="form-label" for="form2Example2">Password</label>
   </div>
 

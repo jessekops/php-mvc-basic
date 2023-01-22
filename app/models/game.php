@@ -1,12 +1,16 @@
 <?php
-class Game {
+class Game implements \JsonSerializable {
 
     private int $id;
     private string $opponent;
     private string $date;
-    private int $nrOfTickets;
     private string $price;
 	private string $time;
+
+	public function jsonSerialize():mixed
+    {
+        return get_object_vars($this);
+    }
 	
 	/**
 	 * @return int
@@ -53,22 +57,6 @@ class Game {
 	 */
 	public function setDate(string $date): self {
 		$this->date = $date;
-		return $this;
-	}
-
-	/**
-	 * @return int
-	 */
-	public function getNrOfTickets(): int {
-		return $this->nrOfTickets;
-	}
-	
-	/**
-	 * @param int $nrOfTickets 
-	 * @return self
-	 */
-	public function setNrOfTickets(int $nrOfTickets): self {
-		$this->nrOfTickets = $nrOfTickets;
 		return $this;
 	}
 

@@ -20,14 +20,13 @@ class AdminRepository extends Repository {
         }
     }
 
-    public function insert($opponent, $date, $nrOfTickets, $price, $time) {
+    public function insert($opponent, $date, $price, $time) {
         try {
-            $sqlquery = "INSERT INTO games (opponent, date, nrOfTickets, price, time) VALUES(:opponent, :date, :nrOfTickets, :price, :time)";
+            $sqlquery = "INSERT INTO games (opponent, date, price, time) VALUES(:opponent, :date, :price, :time)";
             $stmt = $this->connection->prepare($sqlquery);
             
             $stmt->bindParam(':opponent', $opponent);
             $stmt->bindParam(':date', $date);
-            $stmt->bindParam(':nrOfTickets', $nrOfTickets);
             $stmt->bindParam(':price', $price);
             $stmt->bindParam(':time', $time);
 
@@ -38,15 +37,14 @@ class AdminRepository extends Repository {
         }
     }
 
-    public function updateOne($id, $opponent, $date, $nrOfTickets, $price, $time) {
+    public function updateOne($id, $opponent, $date, $price, $time) {
         try {
-            $sqlquery = "UPDATE games SET opponent=:opponent, date=:date, nrOfTickets=:nrOfTickets, price=:price, time=:time WHERE id=:id";
+            $sqlquery = "UPDATE games SET opponent=:opponent, date=:date, price=:price, time=:time WHERE id=:id";
             $stmt = $this->connection->prepare($sqlquery);
 
             $stmt->bindParam(':id', $id);
             $stmt->bindParam(':opponent', $opponent);
             $stmt->bindParam(':date', $date);
-            $stmt->bindParam(':nrOfTickets', $nrOfTickets);
             $stmt->bindParam(':price', $price);
             $stmt->bindParam(':time', $time);
             $stmt->execute();

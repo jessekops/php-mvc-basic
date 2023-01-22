@@ -23,9 +23,10 @@ class LoginRepository extends Repository
         }
     }
 
+
     public function getUser($userName) {
         try {
-            $sqlquery = "SELECT id, userName, passWord, email FROM users WHERE userName=:userName";
+            $sqlquery = "SELECT * FROM users WHERE userName=:userName";
             $stmt = $this->connection->prepare($sqlquery);
 
             $stmt->bindParam(':userName', $userName);

@@ -1,16 +1,10 @@
-# Basic PHP MVC demo
-This repository demonstrates how the MVC design pattern can be implemented using PHP.
+# URL
+Sommige functionaliteiten werkte niet op de gehoste website dus graag via docker openen :)
 
-It contains a docker configuration with:
-* NGINX webserver
-* PHP FastCGI Process Manager with PDO MySQL support
-* MariaDB (GPL MySQL fork)
-* PHPMyAdmin
+# Login credentials
 
-## Installation
-
-1. Install Docker Desktop on Windows or Mac, or Docker Engine on Linux.
-1. Clone the project
+Username: admin
+Password: test123
 
 ## Usage
 
