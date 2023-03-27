@@ -20,7 +20,7 @@ class AdminController
     public function insert()
     {
         if (isset($_POST['opponent'])) {
-            $_POST = filter_input_array(INPUT_POST, FILTER_UNSAFE_RAW);
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             $opponent = $_POST['opponent'];
             $date = $_POST['date'];
@@ -39,7 +39,7 @@ class AdminController
     public function updateOne()
     {
         if (isset($_POST['edit'])) {
-            $_POST = filter_input_array(INPUT_POST, FILTER_UNSAFE_RAW);
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
             $id = $_POST['gameId'];
             $opponent = $_POST['opponent'];

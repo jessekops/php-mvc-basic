@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql
--- Gegenereerd op: 08 dec 2022 om 16:44
+-- Gegenereerd op: 27 mrt 2023 om 15:34
 -- Serverversie: 10.6.5-MariaDB-1:10.6.5+maria~focal
 -- PHP-versie: 7.4.25
 
@@ -31,7 +31,6 @@ CREATE TABLE `games` (
   `id` int(255) NOT NULL,
   `opponent` varchar(50) NOT NULL,
   `date` date NOT NULL,
-  `nrOfTickets` int(255) NOT NULL,
   `price` double DEFAULT NULL,
   `time` time DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -40,12 +39,35 @@ CREATE TABLE `games` (
 -- Gegevens worden geëxporteerd voor tabel `games`
 --
 
-INSERT INTO `games` (`id`, `opponent`, `date`, `nrOfTickets`, `price`, `time`) VALUES
-(23, 'HSV', '2022-12-17', 1200, 12, '14:30:00'),
-(24, 'Castricum', '2022-12-24', 1800, 12.5, '13:15:00'),
-(25, 'Kolping Boys', '2022-12-30', 1200, 10, '15:15:00'),
-(26, 'Fortuna', '2023-01-06', 1200, 12.5, '14:30:00'),
-(27, 'Fortuna', '2023-01-06', 1200, 12.5, '14:30:00');
+INSERT INTO `games` (`id`, `opponent`, `date`, `price`, `time`) VALUES
+(37, ' SVW', '2023-05-05', 13, '18:00:00'),
+(38, ' FC Castricum', '2023-05-18', 10, '16:15:00'),
+(39, 'FC Den Helder', '2023-05-25', 12, '17:15:00');
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(255) NOT NULL,
+  `firstName` varchar(20) NOT NULL,
+  `lastName` varchar(20) NOT NULL,
+  `emailAddress` varchar(30) NOT NULL,
+  `dateOrdered` date NOT NULL,
+  `price` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `orders`
+--
+
+INSERT INTO `orders` (`id`, `firstName`, `lastName`, `emailAddress`, `dateOrdered`, `price`) VALUES
+(2, 'John', 'Doe', 'johndoe@gmail.com', '2023-01-20', 35),
+(3, 'Jesse', 'Kops', '645147@student.inholland.nl', '2023-01-20', 13),
+(4, 'Jan', 'Korte Achternaam', 'janl@gmail.com', '2023-01-22', 12),
+(7, 'Jesse', 'Kops', 'jessekops@hotmail.com', '2023-03-27', 13);
 
 -- --------------------------------------------------------
 
@@ -56,7 +78,7 @@ INSERT INTO `games` (`id`, `opponent`, `date`, `nrOfTickets`, `price`, `time`) V
 CREATE TABLE `users` (
   `id` int(100) NOT NULL,
   `userName` varchar(30) NOT NULL,
-  `passWord` varchar(30) NOT NULL,
+  `passWord` varchar(100) NOT NULL,
   `email` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -65,8 +87,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `userName`, `passWord`, `email`) VALUES
-(1, 'admin', 'test123', 'test@inholland.nl'),
-(2, 'admin', 'test123', 'test@inholland.nl');
+(1, 'admin', 'test123', 'test@inholland.nl');
 
 --
 -- Indexen voor geëxporteerde tabellen
@@ -76,6 +97,12 @@ INSERT INTO `users` (`id`, `userName`, `passWord`, `email`) VALUES
 -- Indexen voor tabel `games`
 --
 ALTER TABLE `games`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexen voor tabel `orders`
+--
+ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -92,7 +119,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT voor een tabel `games`
 --
 ALTER TABLE `games`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+
+--
+-- AUTO_INCREMENT voor een tabel `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT voor een tabel `users`

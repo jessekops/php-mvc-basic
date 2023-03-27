@@ -18,7 +18,7 @@ class LoginController
     public function validate()
     {
         if (isset($_POST['submit'])) {
-            $_POST = filter_input_array(INPUT_POST, FILTER_UNSAFE_RAW);
+            $_POST = filter_input_array(INPUT_POST,  FILTER_SANITIZE_STRING);
 
             $userName = $_POST['userName'];
             $password = $_POST['passWord'];
