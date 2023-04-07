@@ -18,10 +18,10 @@ class LoginController
     public function validate()
     {
         if (isset($_POST['submit'])) {
-            $_POST = filter_input_array(INPUT_POST,  FILTER_SANITIZE_STRING);
+            $_POST = filter_input_array(INPUT_POST);
 
-            $userName = $_POST['userName'];
-            $password = $_POST['passWord'];
+            $userName = htmlspecialchars($_POST['userName']);
+            $password = htmlspecialchars($_POST['passWord']);
 
             $count = $this->loginService->checkUser($userName, $password);
 

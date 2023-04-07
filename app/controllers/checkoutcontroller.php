@@ -16,10 +16,10 @@ class CheckoutController
     public function insert()
     {
         if (isset($_POST['submit'])) {
-            $_POST = filter_input_array(INPUT_POST,  FILTER_SANITIZE_STRING);
-            $firstName = $_POST['firstName'];
-            $lastName = $_POST['lastName'];
-            $emailAddress = $_POST['emailAddress'];
+            $_POST = filter_input_array(INPUT_POST);
+            $firstName = htmlspecialchars($_POST['firstName']);
+            $lastName = htmlspecialchars($_POST['lastName']);
+            $emailAddress = htmlspecialchars($_POST['emailAddress']);
             $dateOrdered = date('Y-m-d');
             $price = $_GET['total'];
 

@@ -20,12 +20,12 @@ class AdminController
     public function insert()
     {
         if (isset($_POST['opponent'])) {
-            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $_POST = filter_input_array(INPUT_POST);
 
-            $opponent = $_POST['opponent'];
-            $date = $_POST['date'];
-            $price = $_POST['price'];
-            $time = $_POST['time'];
+            $opponent = htmlspecialchars($_POST['opponent']);
+            $date = htmlspecialchars($_POST['date']);
+            $price = htmlspecialchars($_POST['price']);
+            $time = htmlspecialchars($_POST['time']);
 
             if (!empty($opponent) && !empty($date) && !empty($price) && !empty($time)) {
                 $this->adminservice->insert($opponent, $date, $price, $time);
@@ -39,13 +39,13 @@ class AdminController
     public function updateOne()
     {
         if (isset($_POST['edit'])) {
-            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            $_POST = filter_input_array(INPUT_POST);
 
-            $id = $_POST['gameId'];
-            $opponent = $_POST['opponent'];
-            $date = $_POST['date'];
-            $price = $_POST['price'];
-            $time = $_POST['time'];
+            $id = htmlspecialchars($_POST['gameId']);
+            $opponent = htmlspecialchars($_POST['opponent']);
+            $date = htmlspecialchars($_POST['date']);
+            $price = htmlspecialchars($_POST['price']);
+            $time = htmlspecialchars($_POST['time']);
 
             if (!empty($id) && !empty($opponent) && !empty($date) && !empty($price) && !empty($time)) {
                 $this->adminservice->updateOne($id, $opponent, $date, $price, $time);

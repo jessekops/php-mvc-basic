@@ -4,7 +4,7 @@ Sommige functionaliteiten werkte niet op de gehoste website dus graag via docker
 # Updates
 Ik heb ten opzichte van kans 1 de volgende updates aangebracht:
 
-- Ipv $_POST = filter_input_array(INPUT_POST, FILTER_UNSAFE_RAW); nu filter_input_array(INPUT_POST, FILTER_UNSAFE_RAW); filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING); Ik heb FILTER_UNSAFE_RAW getest en kan alsnog XSS gebruiken met deze code, met FILTER_SANITIZE_STRING is dat niet meer mogelijk.
+- Ipv $_POST = filter_input_array(INPUT_POST, FILTER_UNSAFE_RAW); nu filter_input_array(INPUT_POST); en htmlspecialchars. Ik heb FILTER_UNSAFE_RAW getest en kan alsnog XSS gebruiken met deze code, met htmlspecialchars is dat niet meer mogelijk.
 
 - De meegegeven sql database is nu up to date, bij kans 1 miste de 'orders' table.
 
